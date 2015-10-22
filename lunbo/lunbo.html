@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="lunbo.css">
+</head>
+<body>
+    <div class="scroll">
+        <ul class="pic-box">
+            <li><a href="###"><img src="images/pic_05.jpg" alt="4"></a></li>
+            <li><a href="###"><img src="images/pic_01.jpg" alt="1"></a></li>
+            <li><a href="###"><img src="images/pic_02.jpg" alt="2"></a></li>
+            <li><a href="###"><img src="images/pic_03.jpg" alt="3"></a></li>
+            <li><a href="###"><img src="images/pic_05.jpg" alt="4"></a></li>
+            <li><a href="###"><img src="images/pic_01.jpg" alt="1"></a></li>
+        </ul>
+        <ul class="btn-box">
+            <li class="active" index="1"><a href="###"></a></li>
+            <li><a href="###" index="2"></a></li>
+            <li><a href="###" index="3"></a></li>
+            <li><a href="###" index="4"></a></li>
+        </ul>
+        <a class="btn-left" href="###">&lt;</a>
+        <a class="btn-right" href="###">&gt;</a>
+    </div>
+    <script src="jquery-1.11.3.min.js"></script>
+    <script>
+        $(function(){
+
+            $(".btn-left").click(function(){
+
+                var oPic = $(".pic-box");
+                var oLeft =oPic .offset().left;
+                var currentLeft = oLeft-1290+'px';
+                oPic.animate({left:currentLeft});
+                var currentA = $(".active");
+                currentA.removeClass('active');
+                currentA.next('li').addClass('active');
+               console.log(currentA.attr('index')) ;
+//                if($('alt'))
+
+            });
+
+        });
+
+        <!--<script type="text/javascript">-->
+        <!--var t = n =0, count;-->
+        <!--$(document).ready(function(){-->
+            <!--count=$("#banner_list a").length;-->
+            <!--$("#banner_list a:not(:first-child)").hide();-->
+            <!--$("#banner_info").html($("#banner_list a:first-child").find("img").attr('alt'));-->
+            <!--$("#banner_info").click(function(){window.open($("#banner_list a:first-child").attr('href'), "_blank")});-->
+            <!--$("#banner li").click(function() {-->
+                <!--var i = $(this).text() -1;获取Li元素内的值，即1，2，3，4-->
+                <!--n = i;-->
+                <!--if (i >= count) return;-->
+                <!--$("#banner_info").html($("#banner_list a").eq(i).find("img").attr('alt'));-->
+                <!--$("#banner_info").unbind().click(function(){window.open($("#banner_list a").eq(i).attr('href'), "_blank")})-->
+                <!--$("#banner_list a").filter(":visible").fadeOut(500).parent().children().eq(i).fadeIn(1000);-->
+                <!--document.getElementById("banner").style.background="";-->
+                <!--$(this).toggleClass("on");-->
+                <!--$(this).siblings().removeAttr("class");-->
+            <!--});-->
+            <!--t = setInterval("showAuto()", 4000);-->
+            <!--$("#banner").hover(function(){clearInterval(t)}, function(){t = setInterval("showAuto()", 4000);});-->
+        <!--})-->
+
+        <!--function showAuto()-->
+        <!--{-->
+            <!--n = n >=(count -1) ?0 : ++n;-->
+            <!--$("#banner li").eq(n).trigger('click');-->
+        <!--}-->
+
+    </script>
+</body>
+</html>
