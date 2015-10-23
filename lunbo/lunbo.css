@@ -1,3 +1,4 @@
+
 body{
     margin:0;
     padding:0;
@@ -8,6 +9,7 @@ body{
     height:210px;
     position:relative;
     overflow:hidden;
+    background-color: red;
 }
 .pic-box{
     margin:0;
@@ -60,7 +62,7 @@ body{
     position:absolute;
 
     top:50%;
-    transform: translate(-50%,-50%);
+    transform: translate(0,-50%);
     display:block;
     background-color:rgba(0,0,0,0.3);
     text-align:center;
@@ -69,8 +71,8 @@ body{
     color:#fff;
 }
 .btn-left{
-    left:21px;
+    left:0px;
 }
 .btn-right{
-    right:-21px;
+    right:0px;
 }
