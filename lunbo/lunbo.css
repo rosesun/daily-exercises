@@ -60,10 +60,9 @@ body{
     height:40px;
     line-height:40px;
     position:absolute;
-
+    display:none;
     top:50%;
     transform: translate(0,-50%);
-    display:block;
     background-color:rgba(0,0,0,0.3);
     text-align:center;
     text-decoration: none;

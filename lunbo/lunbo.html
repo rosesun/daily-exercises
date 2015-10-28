@@ -16,10 +16,10 @@
             <li><a href="###"><img src="images/pic_01.jpg" alt="1"></a></li>
         </ul>
         <ul class="btn-box">
-            <li class="active"><a href="###"></a></li>
-            <li><a href="###"></a></li>
-            <li><a href="###"></a></li>
-            <li><a href="###"></a></li>
+            <li class="active" currentIndex =0 ><a href="###"></a></li>
+            <li><a href="###" currentIndex =1 ></a></li>
+            <li><a href="###" currentIndex =2 ></a></li>
+            <li><a href="###" currentIndex =3 ></a></li>
         </ul>
         <a class="btn-left" href="###">&lt;</a>
         <a class="btn-right" href="###">&gt;</a>
@@ -33,7 +33,7 @@
             var timer;
             var box = $('.scroll');
             $('.btn-left').on('click',function(){
-                if(index < 0){
+                if(index <= 0){
                     index = 3;
                 } else {
                     index --;
@@ -43,18 +43,23 @@
             });
 
             $('.btn-right').on('click',function(){
-                if(index > 3){
+                if(index >= 3){
                     index = 0;
                 } else {
                     index++;
                 }
                 changeBtn(index);
                 changePic(index);
+                console.log(index);
             });
             box.mouseover(function(){
                 clearInterval(timer);
+                $('.btn-right').show();
+                $('.btn-left').show();
             });
             box.mouseout(function(){
+                $('.btn-right').hide();
+                $('.btn-left').hide();
                 auto();
             });
             auto();
@@ -66,9 +71,10 @@
             }
 
             function changeBtn(index){
-                for(var i=0; i< oLi.length;i++){
+                oLi.each(function(i){
                     $(oLi[i]).removeClass('active');
-                }
+                });
+
                 $(oLi[index]).addClass('active');
             }
 
@@ -83,13 +89,13 @@
                     changePic(index);
                 },2000);
             }
-
-            for(var j=0; j <= oLi.length; j++){
-                oLi[j].id = j;
+            var currentIndex;
+            for(var j=0; j < oLi.length; j++){
+                oLi[j].currentIndex = j;
                 oLi[j].onmouseover = function(){
-                    changeBtn(this.id);
-                    changePic(this.id);
-                    index = this.id;
+                    changeBtn(this.currentIndex);
+                    changePic(this.currentIndex);
+                    index = this.currentIndex;
                 };
             }
 
